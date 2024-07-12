@@ -1,2 +1,2 @@
-# demo 
+# Example
 - demo show
