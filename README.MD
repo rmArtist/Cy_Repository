@@ -1,2 +1,2 @@
-# read me
+# 练习样例
 - demo show
