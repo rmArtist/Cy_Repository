@@ -12,5 +12,4 @@ null defined as ' '
 stored as textfile
 ;
 select * from test.test_avater_dt;
-
 load data inpath '/input/csv_to_hive_file' into table test.test_avater_dt partition(etl_dt=20210101);

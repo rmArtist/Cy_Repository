@@ -66,18 +66,14 @@ msg.add_alternative("""\
 			<tr>
 			    <td>&nbsp;</td>
 				<th scope="col"  colspan="1">表格一</th>
-					<!-- th:table header 指定表头-列 -->
 				<th scope="col" colspan="1">表格二</th>
 				<th scope="col" colspan="1">表格三</th>
 				<th scope="col" colspan="1">表格四</th>
 			</tr>
 			<tr>
 			    <th scope="row" rowspan="1">姓名</th>
-					<!-- th:table header 指定表头-行 -->
 				<td>张三</td>
 				<td>李四</td>
-				<!-- <td style="background-color: yellow">李四</td> -->
-					<!-- style 指定背景颜色 -->
 				<td>王五</td>
 				<td>赵六</td>
 			</tr>
@@ -90,14 +86,6 @@ msg.add_alternative("""\
 			</tr>
 			<tr>
 			    <th scope="row" rowspan="1">省份</th>
-				<!-- <td> -->
-					<!-- 单元格嵌套 -->
-					<!-- <table id="table2"> -->
-						<!-- <tr> -->
-							<!-- <td> 河南</td> -->
-						<!-- </tr> -->
-					<!-- </table> -->
-				<!-- </td> -->
 				<td>河南</td>
 				<td>山东</td>
 				<td>安徽</td>
@@ -109,10 +97,6 @@ msg.add_alternative("""\
 """ % (PROVINCE), subtype='html')
 
 with smtplib.SMTP_SSL("smtp.163.com", 465, context=mycontext) as smtp:
-    print("加密连接")
-    # 登录邮箱, 返回认证成功
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-    print("登录")
-    # 发送信息
     send = smtp.send_message(msg)
     print("发送完毕")

@@ -12,9 +12,7 @@ begin
    open cur_films(p_year);
 	
    loop
-    -- fetch row into the film
       fetch cur_films into rec_film;
-    -- exit when no more row to fetch
       exit when not found;
 
     -- build the output
@@ -35,5 +33,5 @@ select * from fun_get_film_titles(2006);
 
 
 select title, release_year
-		 from film
-		 where release_year = 2006 and title like '%ful%';
+  from film
+ where release_year = 2006 and title like '%ful%';

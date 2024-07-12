@@ -52,4 +52,4 @@ waiting
 echo
 sleep 1
 
-superset run -h centos02 -p 8088 --with-threads --reload --debugger
+superset run -h -p --with-threads --reload --debugger

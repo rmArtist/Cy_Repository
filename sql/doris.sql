@@ -15,6 +15,4 @@ PARTITION BY RANGE(event_day)
 )
 DISTRIBUTED BY HASH(siteid) BUCKETS 10
 PROPERTIES("replication_num" = "1");
-
-show data;
 SHOW TABLES;

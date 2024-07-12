@@ -3,7 +3,7 @@ import json
 import requests
 
 URL = "http://host:8080/v1/node"
-JSONDATA = '[{"age": "16.29h","lastRequestTime": "2024-06-18T01:16:41.514Z","lastResponseTime": "2024-06-18T01:16:41.516Z","recentFailureRatio": 0.0,"recentFailures": 0.0,"recentFailuresByType": {},"recentRequests": 120.00277776491774,"recentSuccesses": 120.00277776491774,"uri": "http://10.84.196.97:8080"}]'
+JSONDATA = '[{"age": "16.29h","lastRequestTime": "2024-06-18T01:16:41.514Z","lastResponseTime": "2024-06-18T01:16:41.516Z","recentFailureRatio": 0.0,"recentFailures": 0.0,"recentFailuresByType": {},"recentRequests": 120.00277776491774,"recentSuccesses": 120.00277776491774}]'
 inputKeyList = ['age', 'lastRequestTime']
 keyList = []
 keyValueList = []
@@ -25,15 +25,7 @@ class GetTarget(object):
 
         # text = json.loads(jsonData)
 
-    # 读取所有的key
-    def GetAllKey(self, jsondata):
-        for i in jsondata:
-            for key in i.keys():
-                if key:
-                    keyList.append(key)
-            return keyList
-
-    # 获取某个key对应的value
+    # 获取某个value
     def GetOneValue(self, jsondata, onekey):
         for element in jsondata:
             value = element.get(onekey)
@@ -58,18 +50,11 @@ class GetTarget(object):
 # 主程序
 if __name__ == '__main__':
     gt = GetTarget()
-    # 获取数据
     jsonlist = gt.GetJson(JSONDATA)
     print('通过url获取的json数据: ', jsonlist)
-    # 获取所有key
-    all_key_list = gt.GetAllKey(jsonlist)
-    print('获取json数据中所有的key: ', all_key_list)
-    # 获取某个key对用的value
     one_value = gt.GetOneValue(jsonlist, 'age')
     print('age对应的值为: ', one_value)
-    # 获取所有的key和value
     all_key_value = gt.GetAllKeyValue(jsonlist)
     print('json数据中所有的key和value: ', all_key_value)
-    # 读取特定元素
     anyone_value = gt.GetAnyoneValue(jsonlist, inputKeyList)
     print('获取指定的任意key的value: ', anyone_value)

@@ -15,13 +15,10 @@ public class WriteStudentReducer extends TableReducer<ImmutableBytesWritable,Put
  * */
 	protected void reduce(ImmutableBytesWritable key,Iterable<Put> values,Context context) throws IOException,InterruptedException{
 		for(Put put:values) {
-//			将数据写入HBase表中，输出的key可以为空，因为行键在put对象中已包含
 			context.write(NullWritable.get(), put);
 		}
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
