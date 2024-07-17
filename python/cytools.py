@@ -54,7 +54,7 @@ def get_list_str(s):
 def max_len(s):
     lem = []
     for i in s:
-        lem.append(len(eval(i)))  # 单个元素长度加入字典
+        lem.append(len(eval(i)))
     return max(lem)
 
 
